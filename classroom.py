@@ -244,11 +244,11 @@ def gui():
         show_all(screen, map_wall, map_people, map_potential)
         pygame.display.flip()
         # print(people[0].speed)
-        # time.sleep(0.01)
+        time.sleep(0.5)
         # if count_step % 5 == 1:
         #     pygame.image.save(screen, 'simulation'+str(int(count_step/5))+'.jpg')
         print(len(people), count_step)
-        input()
+        # input()
     # print(count_step)
 
 

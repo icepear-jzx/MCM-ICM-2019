@@ -581,4 +581,4 @@ def no_gui():
 
 for k in range(10, 31):
     p = k / 10
-    no_gui()
+    gui()
