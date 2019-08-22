@@ -96,36 +96,9 @@ def create_people(map_wall, people, map_people):
             map_people[y][x].append(man)
             people.append(man)
 
-    # count = 0
-    # j = 0
-    # for j in range(20, map_wall.len_x - 20):
-    #     for i in range(20, map_wall.len_y - 20):
-    #         count += len(map_people[i][j])
-    #         if count == 500:
-    #             break
-    #     if count == 500:
-    #         break
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][j] = -1
-    #     map_wall.wall[i][j + 1] = -1
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][82] = -1
-    #     map_wall.wall[i][83] = -1
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][120] = -1
-    #     map_wall.wall[i][121] = -1
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][90] = -1
-    #     map_wall.wall[i][91] = -1
-
     for j in range(123, 146):
         map_wall.wall[35][j] = -1
         map_wall.wall[36][j] = -1
-
-
-    # for i in range(20, 27):
-    #     map_wall.wall[i][121] = -1
-    #     map_wall.wall[i][122] = -1
 
 
 def create_potential(map_wall, map_potential):
