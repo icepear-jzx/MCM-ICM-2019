@@ -424,70 +424,13 @@ def gui():
             pygame.image.save(screen, 'pic3' + '.jpg')
             print(count_step)
         pygame.display.flip()
-        # print(people[0].speed)
-        # count = 0
-        # speed_y = 0
-        # for i in range(20, 22):
-        #     for j in range(48, 53):
-        #         for item in map_people[i][j]:
-        #             count += 1
-        #             speed_y += item.speed[0]
-        #
-        # file.write(str(count / 10 / 0.25) + ' ' + str(abs(speed_y / (count + 0.0000000001) / 2)) + '\r\n')
-        #
-        # if count_step == 89:
-        #     update_potential(map_wall, map_potential)
+
         if count_step == 10:
             pygame.image.save(screen, 'pic1' + '.jpg')
         if count_step == 90:
             pygame.image.save(screen, 'pic2' + '.jpg')
         time.sleep(0.01)
     # print(count_step)
-
-
-def no_gui():
-    # pygame.init()
-    # screen = pygame.display.set_mode((500, 500))
-    # bg_color = (230, 230, 230)
-    # pygame.display.set_caption('Simulation')
-
-    map_wall = Map()
-    people = []
-    map_people = [] * map_wall.len_y
-    map_potential = [] * map_wall.len_y
-    for i in range(map_wall.len_y):
-        map_people.append([])
-        for j in range(map_wall.len_x):
-            map_people[i].append([])
-        map_potential.append([1000] * map_wall.len_x)
-    create_people(map_wall, people, map_people)
-    create_potential(map_wall, map_potential)
-    # for i in range(50, 450):
-    #     print(''.join(str(map_potential[i])))
-    # file = open('data.txt', 'w')
-    # for i in range(500):
-    #     line = ''
-    #     for j in range(500):
-    #         line += str(map_potential[i][j]) + ' '
-    #     line = line[:-1]
-    #     line += '\r\n'
-    #     file.write(line)
-
-    count_step = 0
-    while people:
-        print(len(people))
-        count_step += 1
-        # for event in pygame.event.get():
-        #     if event.type == pygame.QUIT:
-        #         sys.exit()
-        # screen.fill(bg_color)
-
-        update_all(map_wall, people, map_people, map_potential)
-        # show_all(screen, map_wall, map_people, map_potential)
-        # pygame.display.flip()
-        # print(people[0].speed)
-        time.sleep(0.01)
-    print(count_step)
 
 
 gui()

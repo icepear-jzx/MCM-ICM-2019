@@ -81,10 +81,6 @@ class Map:
             for j in range(221, 224):
                 self.door.append([i, j])
                 self.wall[i][j] = 0
-        # for i in range(43, 47):
-        #     for j in range(17, 20):
-        #         self.door.append([i, j])
-        #         self.wall[i][j] = 0
         for i in range(17, 20):
             for j in range(73, 78):
                 self.door.append([i, j])
@@ -92,29 +88,6 @@ class Map:
 
 
 def create_people(map_wall, people, map_people):
-    # while len(people) < 200:
-    #     x = random.randint(120, map_wall.len_x - 20)
-    #     y = random.randint(20, map_wall.len_y - 20)
-    #     if len(map_people[y][x]) == 0 and not map_wall.wall[y][x]:
-    #         man = Man(y, x)
-    #         map_people[y][x].append(man)
-    #         people.append(man)
-    # while len(people) < 1000:
-    #     x = random.randint(20, 120)
-    #     y = random.randint(20, map_wall.len_y - 20)
-    #     if len(map_people[y][x]) == 0 and not map_wall.wall[y][x]:
-    #         man = Man(y, x)
-    #         map_people[y][x].append(man)
-    #         people.append(man)
-
-    # while len(people) < 1000:
-    #     x = random.randint(20, map_wall.len_x - 20)
-    #     y = random.randint(20, map_wall.len_y - 20)
-    #     if len(map_people[y][x]) == 0 and not map_wall.wall[y][x]:
-    #         man = Man(y, x)
-    #         map_people[y][x].append(man)
-    #         people.append(man)
-    # global count_able
     while len(people) < 1000:
         x = random.randint(20, map_wall.len_x - 20)
         y = random.randint(20, map_wall.len_y - 20)
@@ -122,58 +95,6 @@ def create_people(map_wall, people, map_people):
             man = Man(y, x)
             map_people[y][x].append(man)
             people.append(man)
-    # while len(people) < 900:
-    #     x = random.randint(20, map_wall.len_x - 20)
-    #     y = random.randint(20, map_wall.len_y - 20)
-    #     if len(map_people[y][x]) == 0 and not map_wall.wall[y][x]:
-    #         man = Man(y, x)
-    #         man.foreign = 1
-    #         map_people[y][x].append(man)
-    #         people.append(man)
-    # while len(people) < 1000:
-    #     x = random.randint(20, map_wall.len_x - 20)
-    #     y = random.randint(20, map_wall.len_y - 20)
-    #     if len(map_people[y][x]) == 0 and not map_wall.wall[y][x]:
-    #         man = Man(y, x)
-    #         man.disable = 1
-    #         man.max_speed = 0.8
-    #         map_people[y][x].append(man)
-    #         people.append(man)
-    # for k in range(count_able):
-    #     temp = []
-    #     for i in range(20 * k, 20 * k + 20):
-    #         temp.append(people[i])
-    #     for man in temp:
-    #         man.team_member = temp
-
-    # count = 0
-    # j = 0
-    # for j in range(20, map_wall.len_x - 20):
-    #     for i in range(20, map_wall.len_y - 20):
-    #         count += len(map_people[i][j])
-    #         if count == 500:
-    #             break
-    #     if count == 500:
-    #         break
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][j] = -1
-    #     map_wall.wall[i][j + 1] = -1
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][82] = -1
-    #     map_wall.wall[i][83] = -1
-    for i in range(20, map_wall.len_y - 19):
-        map_wall.wall[i][120] = -1
-        map_wall.wall[i][121] = -1
-    # for i in range(20, map_wall.len_y - 19):
-    #     map_wall.wall[i][90] = -1
-    #     map_wall.wall[i][91] = -1
-    # for j in range(123, 146):
-    #     map_wall.wall[35][j] = -1
-    #     map_wall.wall[36][j] = -1
-
-    # for i in range(20, 27):
-    #     map_wall.wall[i][121] = -1
-    #     map_wall.wall[i][122] = -1
 
 
 def create_potential(map_wall, map_potential, map_potential_door):
@@ -221,7 +142,7 @@ def create_potential(map_wall, map_potential, map_potential_door):
 
 def update_all(map_wall, people, map_people, map_potential, map_count, count_step, map_potential_door):
     temp = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1], [-1, -1], [1, -1]]
-    global p
+    p = 3
     for man in people:
         if man.foreign and count_step < 5:
             continue
@@ -439,13 +360,6 @@ def show_all(screen, map_wall, map_people, map_potential, map_potential_door):
                     (255 - map_potential[i][j]), (255 - map_potential[i][j]),
                     (255 - map_potential[i][j])),
                                  ((5 * j, 5 * i), (5, 5)))
-            # if map_potential_door[i][j] > 255:
-            #     pygame.draw.rect(screen, (0, 0, 0), ((5 * j, 5 * i), (5, 5)))
-            # else:
-            #     pygame.draw.rect(screen, (
-            #         (255 - map_potential_door[i][j]), (255 - map_potential_door[i][j]),
-            #         (255 - map_potential_door[i][j])),
-            #                      ((5 * j, 5 * i), (5, 5)))
             if map_people[i][j]:
                 if map_people[i][j][0].foreign:
                     pygame.draw.circle(screen, (150, 0, 150), (5 * j + 3, 5 * i + 3), 2)
@@ -498,88 +412,35 @@ def gui():
         map_count.append([0] * map_wall.len_x)
     create_people(map_wall, people, map_people)
     create_potential(map_wall, map_potential, map_potential_door)
-    # for i in range(50, 450):
-    #     print(''.join(str(map_potential[i])))
-    # file = open('data.txt', 'w')
-    # for i in range(500):
-    #     line = ''
-    #     for j in range(500):
-    #         line += str(map_potential[i][j]) + ' '
-    #     line = line[:-1]
-    #     line += '\r\n'
-    #     file.write(line)
-    # file = open('data.txt', 'w')
+
     count_step = 0
-    while True:
-        # print(len(people))
+
+    while people:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+
         screen.fill(bg_color)
-        if people:
-            count_step += 1
-            update_all(map_wall, people, map_people, map_potential, map_count, count_step, map_potential_door)
-            show_all(screen, map_wall, map_people, map_potential, map_potential_door)
-            # print(count_step, map_wall.count_door)
-        else:
-            show_count(screen, map_wall, map_count)
-            # pygame.image.save(screen, 'pic3' + '.jpg')
-            print(count_step)
-            break
+
+        count_step += 1
+        update_all(map_wall, people, map_people, map_potential, map_count, count_step, map_potential_door)
+        show_all(screen, map_wall, map_people, map_potential, map_potential_door)
+
         pygame.display.flip()
-        # print(people[0].speed)
-        # count = 0
-        # speed_y = 0
-        # for i in range(20, 22):
-        #     for j in range(48, 53):
-        #         for item in map_people[i][j]:
-        #             count += 1
-        #             speed_y += item.speed[0]
-        #
-        # file.write(str(count / 10 / 0.25) + ' ' + str(abs(speed_y / (count + 0.0000000001) / 2)) + '\r\n')
-        #
-        # if count_step == 89:
-        #     update_potential(map_wall, map_potential)
-
-        # if len(people) < 100:
-        #     for man in people:
-        #         if man.disable:
-        #             man.max_speed = 1.6
-        # if count_step == 20:
-        #     pygame.image.save(screen, 'pic1' + '.jpg')
+        
+        # if count_step == 10:
+        #     pygame.image.save(screen, 'step10' + '.jpg')
         # if count_step == 90:
-        #     pygame.image.save(screen, 'pic2' + '.jpg')
-        # time.sleep(0.01)
-    # print(count_step)
+        #     pygame.image.save(screen, 'step90' + '.jpg')
+
+        time.sleep(0.01)
+
+    show_count(screen, map_wall, map_count)
+    pygame.display.flip()
+    # pygame.image.save(screen, 'step' + str(count_step) + '.jpg')
+    print('Total steps:', count_step)
+    time.sleep(5)
 
 
-def no_gui():
-    map_wall = Map()
-    people = []
-    map_people = [] * map_wall.len_y
-    map_potential = [] * map_wall.len_y
-    map_count = [] * map_wall.len_y
-    map_potential_door = [] * map_wall.len_y
-    for i in range(map_wall.len_y):
-        map_people.append([])
-        for j in range(map_wall.len_x):
-            map_people[i].append([])
-        map_potential.append([1000] * map_wall.len_x)
-        map_potential_door.append([1000] * map_wall.len_x)
-        map_count.append([0] * map_wall.len_x)
-    create_people(map_wall, people, map_people)
-    create_potential(map_wall, map_potential, map_potential_door)
-    count_step = 0
-    while True:
-        if people:
-            count_step += 1
-            update_all(map_wall, people, map_people, map_potential, map_count, count_step, map_potential_door)
-        else:
-            print(count_step)
-            break
+gui()
 
-
-for k in range(10, 31):
-    p = k / 10
-    print(p)
-    gui()
