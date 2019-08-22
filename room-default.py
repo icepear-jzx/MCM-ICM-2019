@@ -343,16 +343,16 @@ def gui():
 
         pygame.display.flip()
 
-        if count_step == 10:
-            pygame.image.save(screen, 'step10' + '.jpg')
-        if count_step == 90:
-            pygame.image.save(screen, 'step90' + '.jpg')
+        # if count_step == 10:
+        #     pygame.image.save(screen, 'step10' + '.jpg')
+        # if count_step == 90:
+        #     pygame.image.save(screen, 'step90' + '.jpg')
 
         time.sleep(0.01)
     
     show_count(screen, map_wall, map_count)
     pygame.display.flip()
-    pygame.image.save(screen, 'step' + str(count_step) + '.jpg')
+    # pygame.image.save(screen, 'step' + str(count_step) + '.jpg')
     print('Total steps:', count_step)
     time.sleep(5)
 
