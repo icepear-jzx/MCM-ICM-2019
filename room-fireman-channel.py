@@ -144,6 +144,8 @@ def update_all(map_wall, people, map_people, map_potential_man, map_potential_fi
     temp = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1], [-1, -1], [1, -1]]
     p = 3
     for man in people:
+        if man.fireman and man.x <= 20:
+            print(count_step)
         if man.fireman:
             map_potential = map_potential_fireman
         else:
@@ -338,30 +340,35 @@ def gui():
         map_count.append([0] * map_wall.len_x)
     create_people(map_wall, people, map_people)
     create_potential(map_wall, map_potential_man, map_potential_fireman)
+
     count_step = 0
-    while True:
+
+    while people:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+        
         screen.fill(bg_color)
-        if people:
-            count_step += 1
-            if count_step == 37:
-                for i in range(47, 48):
-                    for j in range(110, 130):
-                        map_wall.wall[i][j] = 0
-                for i in range(47, 55):
-                    for j in range(109, 110):
-                        map_wall.wall[i][j] = 0
-            update_all(map_wall, people, map_people, map_potential_man, map_potential_fireman, map_count,count_step)
-            show_all(screen, map_wall, map_people, map_potential_man, map_potential_fireman)
-            print(count_step, map_wall.count_door)
-        else:
-            show_count(screen, map_wall, map_count)
-            print(count_step)
+
+        count_step += 1
+
+        if count_step == 37:
+            for i in range(47, 48):
+                for j in range(110, 130):
+                    map_wall.wall[i][j] = 0
+            for i in range(47, 55):
+                for j in range(109, 110):
+                    map_wall.wall[i][j] = 0
+
+        update_all(map_wall, people, map_people, map_potential_man, map_potential_fireman, map_count,count_step)
+        show_all(screen, map_wall, map_people, map_potential_man, map_potential_fireman)
+            
         pygame.display.flip()
 
         time.sleep(0.01)
+    
+    print('Total steps:', count_step)
+    time.sleep(2)
 
 
 gui()
