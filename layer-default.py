@@ -450,7 +450,6 @@ def show_count(screen, map_wall, map_count):
                 pygame.draw.circle(screen, (255, 20, 20), (j, i), 0)
             elif map_count[i][j] > 30:
                 pygame.draw.circle(screen, (255, 40, 40), (j, i), 0)
-                # pygame.draw.circle(screen, (255, (255 - 4.2*map_count[i][j]), (255 - 4.2*map_count[i][j])), (j, i), 0)
             elif map_count[i][j] > 10:
                 pygame.draw.circle(screen, (255, 100, 100), (j, i), 0)
             elif map_count[i][j] > 0:
@@ -492,12 +491,12 @@ def gui():
             # update_potential(map_wall, map_potential, count_step)
             update_all(map_wall, people, map_people, map_potential, map_count)
             show_all(screen, map_wall, map_people, map_potential)
-            if count_step % 60 == 1:
-                pygame.image.save(screen, 'pic' + str(int(count_step / 60)) + '.jpg')
-            print(count_step, len(people), map_count[68][550])
+            # if count_step % 60 == 1:
+                # pygame.image.save(screen, 'pic' + str(int(count_step / 60)) + '.jpg')
+            print('steps:', count_step, 'people:', len(people))
         else:
             show_count(screen, map_wall, map_count)
-            pygame.image.save(screen, 'pic' + '.jpg')
+            # pygame.image.save(screen, 'pic' + '.jpg')
             print(count_step)
             break
         pygame.display.flip()
