@@ -1,7 +1,8 @@
 # Cellular-Automata-Evacuation-Model
 
 > A modified cellular automata model for 2019 Mathematical Contest in Modeling Problem D.
-Our team was designated as Meritorious Winner!
+
+> Our team was designated as Meritorious Winner!
 
 ## Usage
 
