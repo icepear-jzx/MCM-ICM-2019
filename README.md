@@ -4,15 +4,19 @@
 >
 > Our team was designated as Meritorious Winner!
 
-## Usage
+## Download
 
-You can get more detailed information in our [paper](Escape-to-Victory-from-the-Louvre.pdf).
+```shell
+$ git clone https://github.com/IcePear-Jzx/Cellular-Automata-Evacuation-Model.git
+```
 
-You need to install pygame.
+## Installation
 
 ```shell
 $ pip3 install pygame --user
 ```
+
+## Usage
 
 At first, we assume that people are uniformly distributed in the room.
 You can see the simulation of an evacuation without any guidance.
@@ -57,3 +61,5 @@ Expand a single room to the whole layer:
 ```shell
 $ python3 layer-default.py
 ```
+
+You can get more detailed information in our [paper](Escape-to-Victory-from-the-Louvre.pdf).
